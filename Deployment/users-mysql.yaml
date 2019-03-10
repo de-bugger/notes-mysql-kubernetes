@@ -22,6 +22,3 @@ spec:
         args: ["-jar","/users-mysql.jar","8086"]
         ports:
         - containerPort: 8086
-        dnsConfig:
-          nameservers:
-            - //TODO
