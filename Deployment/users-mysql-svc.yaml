@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-mysql-service
+  namespace: default
+spec:
+  ports:
+  - port: 8086
+    targetPort: 8086
+    nodePort: 30000
+    name: http
+    protocol: TCP
+  selector:
+    app: users-mysql
+  type: NodePort

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-mysql-deployment
+  namespace: default
+  labels:
+    app: users-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-mysql
+  template:
+    metadata:
+      labels:
+        app: users-mysql
+    spec:
+      containers:
+      - name: users-mysql
+        image: darsh50/notes-app:users-mysql
+        command: ["java"]
+        args: ["-jar","/users-mysql.jar","8086"]
+        ports:
+        - containerPort: 8086
+        dnsConfig:
+          nameservers:
+            - //TODO
