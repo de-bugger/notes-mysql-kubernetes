@@ -19,7 +19,7 @@ type: Opaque
 data:
   MYSQL_ROOT_PASSWORD: cGFzc3dvcmQ= #password
   MYSQL_DATABASE: dGVzdA== #test
-  MYSQL_USER: dGVzdHVzZXI= #testuser
+  MYSQL_USER: ZGFyc2g= #darsh
   MYSQL_PASSWORD: cGFzc3dvcmQ= #password
 ---
 apiVersion: v1
