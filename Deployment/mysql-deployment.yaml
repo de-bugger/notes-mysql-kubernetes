@@ -74,7 +74,6 @@ spec:
               secretKeyRef:
                 name: mysql-secret
                 key: MYSQL_PASSWORD
-        restartPolicy: Never
         ports:
         - containerPort: 3306
           name: mysql
