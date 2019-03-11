@@ -22,7 +22,7 @@ spec:
         args: ["-jar","/users-mysql.jar","8086"]
         ports:
         - containerPort: 8086
-        - env:
+        env:
           - name: spring_jpa_database
             value: mysql
           - name: spring_datasource_url
