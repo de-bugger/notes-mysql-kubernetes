@@ -10,7 +10,6 @@ spec:
     #nodePort: 31000
   selector:
     app: mysql
-  clusterIP: None
 ---
 apiVersion: v1
 kind: Secret
