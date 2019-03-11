@@ -21,7 +21,7 @@ spec:
         command: ["java"]
         args: ["-jar","/users-mysql.jar","8086"]
         ports:
-        - containerPort: 8086
+        - containerPort: 80
         env:
           - name: SPRING_DATASOURCE_URL
             value: jdbc:mysql://mysql/test?useSSL=false
