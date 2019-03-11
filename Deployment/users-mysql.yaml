@@ -23,16 +23,14 @@ spec:
         ports:
         - containerPort: 8086
         env:
-          - name: spring_jpa_database
-            value: mysql
-          - name: spring_datasource_url
+          - name: SPRING_DATASOURCE_URL
             value: jdbc:mysql://mysql/test?useSSL=false
-          - name: spring_datasource_username
+          - name: SPRING_DATASOURCE_USERNAME
             valueFrom:
               secretKeyRef:
                 name: mysql-secret
                 key: MYSQL_USER
-          - name: spring_datasource_password
+          - name: SPRING_DATASOURCE_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mysql-secret
