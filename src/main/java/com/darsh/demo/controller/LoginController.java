@@ -22,7 +22,7 @@ public class LoginController {
 	}
 	@RequestMapping(value= {"/home","/"})
 	public String showNotesPage() {
-		return "home";
+		return "redirect:getallnotes";
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	border-bottom: 1px solid #ddd;
+}
+th, td {
+	text-align: center;
+	padding: 8px;
+}
+
+h1 {
+	margin-left: 80px;
+}
+
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+</style>
+<title>Notes</title>
+</head>
+
+<body>
+	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+	<div style="margin-left:80px;">
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+	</div>
+	<div>
+		<div th:if="${notes.empty}">No notes yet!!! Please add some
+			notes</div>
+		<div th:if="${!notes.empty}" style="overflow-x: auto;">
+			<table id="example">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Content</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="note : ${notes}">
+						<td data-th-text="${note.title}">Title is here.......</td>
+						<td data-th-text="${note.Content}">Content is here......</td>
+						<td><a th:href="|/notes/editnotes/${note.notes_Id}|"
+							class="w3-btn w3-green w3-circle">Edit</a></td>
+						<td><a th:href="|/notes/deletenotes/${note.notes_Id}|"
+							class="w3-btn w3-red w3-circle">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="form-group " style="text-align: center">
+		<a class="w3-btn w3-green w3-circle" th:href="@{/addnotes}">AddNotes</a>
+	</div>
+</body>
+</html>

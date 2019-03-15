@@ -1,4 +1,4 @@
-server.port= 80
+server.port= 8086
 server.servlet.context-path=/notes
 
 ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
@@ -13,4 +13,4 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
 
 
 spring.jpa.show-sql=true 
-spring.jpa.hibernate.ddl-auto= create-drop
+spring.jpa.hibernate.ddl-auto= update

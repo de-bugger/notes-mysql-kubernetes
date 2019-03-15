@@ -8,7 +8,7 @@ public class Notes {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name = "notesId", nullable = false, updatable = false)
-	private Long notes_Id;
+	private Long id;
 	
 	@Column(name = "title", nullable = false)
 	private String title;
@@ -19,10 +19,10 @@ public class Notes {
 	private User user;
 	
 	public Long getNotes_Id() {
-		return notes_Id;
+		return id;
 	}
 	public void setNotes_Id(Long notes_Id) {
-		this.notes_Id = notes_Id;
+		this.id = notes_Id;
 	}
 	public String getTitle() {
 		return title;
@@ -44,7 +44,7 @@ public class Notes {
 	}
 	@Override
 	public String toString() {
-		return "Notes [notes_Id=" + notes_Id + ", title=" + title + ", Content=" + Content  + "]";
+		return "Notes [notes_Id=" + id + ", title=" + title + ", Content=" + Content  + "]";
 	}
 	
 	

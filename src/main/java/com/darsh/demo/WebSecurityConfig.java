@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	System.out.println("Got a sign in request");
         http
             .authorizeRequests().
             		antMatchers(PUBLIC_MATCHERS).permitAll()

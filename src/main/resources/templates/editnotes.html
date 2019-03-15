@@ -5,20 +5,21 @@
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-					<h1 class="title">Add Notes</h1>
+					<h1 class="title">Edit Notes</h1>
 					<hr />
 				</div>
 			</div>
 			<div class="main-login main-center">
-				<form class="form-horizontal" method="post" th:action="@{/addnotes}">
-
+			<p th:text="${note}">...</p>
+				<form class="form-horizontal" method="post" th:action="|/notes/editnotes/${note.notes_Id}|">
+					<input type="hidden" id="notes_Id"  th:value="${note.notes_Id}" name="notes_Id">
 					<div class="form-group">
 						<label for="title" class="cols-sm-2 control-label">Title</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa"
 									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									th:value="${notes.title}" id="title" name="title"
+									th:value="${note.title}" id="title" name="title"
 									placeholder="Enter your Notes title" required="required" />
 							</div>
 						</div>
@@ -30,24 +31,20 @@
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-users fa"
 									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									th:value="${notes.Content}" id="content" name="content"
+									th:value="${note.Content}" id="content" name="content"
 									placeholder="Enter your Content" required="required" />
 							</div>
 						</div>
 					</div>
 
-					<br>
+
 					<div class="form-group ">
 						<button type="submit"
 							class="btn btn-primary btn-lg btn-block login-button">Submit</button>
 					</div>
 
 					<hr />
-					<div class="form-group ">
-						<a class="btn btn-info btn-lg btn-block login-button"
-							th:href="@{/getallnotes}">home</a>
-					</div>
-					<br>
+
 					<div class="form-group ">
 						<a class="btn btn-info btn-lg btn-block login-button"
 							th:href="@{/getallnotes}">Cancel</a>
