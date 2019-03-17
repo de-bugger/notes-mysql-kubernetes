@@ -27,8 +27,8 @@ public class User implements UserDetails{
 	private Set<Notes> notes;
 
 	private boolean enabled=true;
-	
-	
+
+
 	public Set<Notes> getnotes() {
 		return notes;
 	}

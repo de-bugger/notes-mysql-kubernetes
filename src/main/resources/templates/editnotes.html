@@ -1,57 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+	box-sizing: border-box
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+}
+
+button:hover {
+	opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+	padding: 14px 20px;
+	background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+	float: left;
+	width: 100%;
+}
+
+/* Add padding to container elements */
+.container {
+	padding: 16px;
+}
+
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+	.cancelbtn, .signupbtn {
+		width: 100%;
+	}
+}
+</style>
 <body>
-	<div class="container">
-		<div class="row main">
-			<div class="panel-heading">
-				<div class="panel-title text-center">
-					<h1 class="title">Edit Notes</h1>
-					<hr />
-				</div>
-			</div>
-			<div class="main-login main-center">
-			<p th:text="${note}">...</p>
-				<form class="form-horizontal" method="post" th:action="|/notes/editnotes/${note.notes_Id}|">
-					<input type="hidden" id="notes_Id"  th:value="${note.notes_Id}" name="notes_Id">
-					<div class="form-group">
-						<label for="title" class="cols-sm-2 control-label">Title</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									th:value="${note.title}" id="title" name="title"
-									placeholder="Enter your Notes title" required="required" />
-							</div>
-						</div>
-					</div>
+	<form class="form-horizontal" method="post" th:action="|/notes/editnotes/${note.notes_Id}|">
+		<div class="container">
+			<h1>Edit Notes</h1>
+			<hr>
+			<input type="hidden" id="notes_Id"  th:value="${note.notes_Id}" name="notes_Id">
+			<label for="title"><b>Title</b></label>
+	<input type="text" th:value="${note.title}" id="title" name="title"
+          placeholder="Enter your Note title" required="required" />
+    
+    <label for="content" placeholder="Enter Content"><b>Content</b></label>
+    <input type="text" th:value="${note.Content}" id="content" name="content" 
+    		 placeholder="Enter your Content" required="required" />
 
-					<div class="form-group">
-						<label for="username" class="cols-sm-2 control-label">Content</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa"
-									aria-hidden="true"></i></span> <input type="text" class="form-control"
-									th:value="${note.Content}" id="content" name="content"
-									placeholder="Enter your Content" required="required" />
-							</div>
-						</div>
-					</div>
-
-
-					<div class="form-group ">
-						<button type="submit"
-							class="btn btn-primary btn-lg btn-block login-button">Submit</button>
-					</div>
-
-					<hr />
-
-					<div class="form-group ">
-						<a class="btn btn-info btn-lg btn-block login-button"
-							th:href="@{/getallnotes}">Cancel</a>
-					</div>
-				</form>
-			</div>
+			
+				<button type="submit" class="signupbtn">Submit</button>
+				
+				<button type="button"
+					th:onclick="|window.location.href='/notes/getallnotes'|"
+					class="cancelbtn">Cancel</button>
 		</div>
-	</div>
+	</form>
+
 </body>
 </html>

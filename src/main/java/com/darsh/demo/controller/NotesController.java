@@ -51,7 +51,9 @@ public class NotesController {
 		User user= userService.findByUsername(principal.getName());
 		note.setUser(user);
 		notesService.addNote(note);
-		return "notes";
+		List<Notes> notes= notesService.getAllNotes(user);
+		model.addAttribute("notes",notes);
+		return "getallnotes";
 	}
 	
 	@RequestMapping(value= "/editnotes/{id}", method= RequestMethod.GET)
